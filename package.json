@@ -1,0 +1,36 @@
+{
+    "name": "backbase",
+    "version": "0.1.0",
+    "description": "Automated tests for backbase challenge",
+    "author": "Wioletta Miklasewicz <wioletta.miklasewicz@gmail.com>",
+    "repository": {
+        "type": "git"
+    },
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "chrome-tests-with-html-report": "testcafe chrome tests/ --reporter html:automated-reports/chrome-test-report.html",
+        "chrome-tests-with-spec-report": "testcafe chrome tests/ -r spec",
+        "firefox-tests-with-html-report": "testcafe firefox tests/ --reporter html:automated-reports/firefox-test-report.html",
+        "firefox-tests-with-spec-report": "testcafe firefox tests/ -r spec",
+        "chrome:headless-tests-with-html-report": "testcafe chrome:headless tests/ --reporter html:automated-reports/chrome-test-report.html",
+        "chrome:headless-tests-with-spec-report": "testcafe chrome:headless tests/ -r spec",
+        "firefox:headless-tests-with-html-report": "testcafe firefox:headless tests/ --reporter html:automated-reports/firefox-test-report.html",
+        "firefox:headless-tests-with-spec-report": "testcafe firefox:headless tests/ -r spec"
+    },
+    "dependencies": {
+        "@babel/core": "^7.15.0",
+        "dotenv": "^10.0.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "lorem-ipsum": "^2.0.4",
+        "markdown-it": "^12.3.2",
+        "moment": "^2.29.3",
+        "testcafe": "^1.18.5",
+        "testcafe-reporter-html": "^1.4.6"
+    },
+    "devDependencies": {
+        "eslint": "^8.13.0"
+    }
+}

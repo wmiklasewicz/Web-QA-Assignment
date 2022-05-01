@@ -1,0 +1,11 @@
+{
+    "reporter": {
+      "name": "html"
+    },
+    "skipJsErrors": true,
+    "selectorTimeout": 10000,
+    "assertionTimeout": 10000,
+    "concurrency": 1,
+    "browsers": ["chrome", "firefox"]
+
+}

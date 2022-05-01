@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Contents/bootstrap-sortable.css">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/bootstrap-sortable.js"></script>
+    <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/moment.min.js"></script>
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif;}
+
+      .thumbImg {
+        width: 100%;
+        max-width: 35px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-bottom: 5px;
+        border-width: 1px;
+        border-color: #f1f1f1;
+        border-style: solid;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.7);
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+      }
+
+      .closeModal {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .closeModal:hover,
+      .closeModal:focus {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+      <span class="closeModal">&times;</span>
+      <img class="modal-content" id="modelImage">
+    </div>
+    <div class="container">
+
+      <h1 class="text-primary">TestCafe Test Summary</h1>
+      <div class="client-logo" style="padding:15px"></div>
+      <div class="bg-primary" style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">
+        <h3>Summary</h3><br>
+        <p class="lead">Start Time: Wed Apr 20 2022 10:40:00 GMT+0200 (czas środkowoeuropejski letni)</p>
+        <p class="lead">Browsers: Firefox 100.0 / Windows 10</p>
+        <p class="lead">Duration: 2m 15s</p>
+        <p class="lead">Tests Failed: 5 out of 5</p>
+        <p class="lead">Tests Skipped: 0</p>
+      </div><br>
+      <table class="table sortable" style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Fixture</th>
+            <th>Test Name</th>
+            <th>Browsers</th>
+            <th>Duration</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr class="danger">
+  <td>1</td>
+  <td>CRUD operations for articles</td>
+  <td>Test case 1 | BWQA-3: Create a new article | data set: 1</td>
+  <td>Firefox 100.0 / Windows 10</td>
+  <td>28s</td>
+  <td><a href="#test-1">failed</a></td>
+ </tr>
+ <tr class="danger">
+  <td>2</td>
+  <td>CRUD operations for articles</td>
+  <td>Test case 2 | BWQA-4: Read article | data set: 1</td>
+  <td>Firefox 100.0 / Windows 10</td>
+  <td>27s</td>
+  <td><a href="#test-2">failed</a></td>
+ </tr>
+ <tr class="danger">
+  <td>3</td>
+  <td>CRUD operations for articles</td>
+  <td>Test case 3 | BWQA-8: Delete article | data set: 1</td>
+  <td>Firefox 100.0 / Windows 10</td>
+  <td>26s</td>
+  <td><a href="#test-3">failed</a></td>
+ </tr>
+ <tr class="danger">
+  <td>4</td>
+  <td>CRUD operations for articles</td>
+  <td>Test case 4 | BWQA-9: Update article | data set: 1</td>
+  <td>Firefox 100.0 / Windows 10</td>
+  <td>37s</td>
+  <td><a href="#test-4">failed</a></td>
+ </tr>
+ <tr class="danger">
+  <td>5</td>
+  <td>CRUD operations for articles</td>
+  <td>Test case 5 | BWQA-12: Create empty article | data set: 1</td>
+  <td>Firefox 100.0 / Windows 10</td>
+  <td>17s</td>
+  <td><a href="#test-5">failed</a></td>
+ </tr>
+
+        </tbody>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+      </table>
+      <br>
+      <h3>Error Details</h3>
+       <h4 id="test-1" style="color: red;">1. CRUD operations for articles - Test case 1 | BWQA-3: Create a new article | data set: 1</h4>
+ <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">Cannot obtain information about the node because the specified selector does not match any node in the DOM tree.
+
+   | Selector(&#39;a&#39;)
+ &gt; |   .withAttribute(&#39;class&#39;, &#39;author&#39;)
+
+Browser: Firefox 100.0 / Windows 10
+
+    93 | * await ArticleHelper.validateArticleOnFeedTab(&#39;Global Feed&#39;);
+    94 | */
+    95 |  async validateArticleOnFeedTab(feedTabName) &#123
+    96 |    await t
+    97 |      .click(MainPage.feedTabSelector.withText(feedTabName))
+ &gt;  98 |      .expect(MainPage.lastArticleSelector).contains(process.env.TEST_PROFILE);
+    99 |  &#125
+   100 |
+   101 |  /**
+   102 | * Delete article
+   103 | * @example
+
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:98:45)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:264)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:602)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:767)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:508)
+   at ArticleHelper.validateArticleOnFeedTab (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:95:47)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:25:25)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1369)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1707) </pre><br> <h4 id="test-2" style="color: red;">2. CRUD operations for articles - Test case 2 | BWQA-4: Read article | data set: 1</h4>
+ <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">Cannot obtain information about the node because the specified selector does not match any node in the DOM tree.
+
+   | Selector(&#39;a&#39;)
+ &gt; |   .withAttribute(&#39;class&#39;, &#39;author&#39;)
+
+Browser: Firefox 100.0 / Windows 10
+
+    93 | * await ArticleHelper.validateArticleOnFeedTab(&#39;Global Feed&#39;);
+    94 | */
+    95 |  async validateArticleOnFeedTab(feedTabName) &#123
+    96 |    await t
+    97 |      .click(MainPage.feedTabSelector.withText(feedTabName))
+ &gt;  98 |      .expect(MainPage.lastArticleSelector).contains(process.env.TEST_PROFILE);
+    99 |  &#125
+   100 |
+   101 |  /**
+   102 | * Delete article
+   103 | * @example
+
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:98:45)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:264)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:602)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:767)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:508)
+   at ArticleHelper.validateArticleOnFeedTab (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:95:47)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:35:25)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1369)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1707) </pre><br> <h4 id="test-3" style="color: red;">3. CRUD operations for articles - Test case 3 | BWQA-8: Delete article | data set: 1</h4>
+ <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">Cannot obtain information about the node because the specified selector does not match any node in the DOM tree.
+
+   | Selector(&#39;a&#39;)
+ &gt; |   .withAttribute(&#39;class&#39;, &#39;preview-link&#39;)
+   |   .child(&#39;h1&#39;)
+
+Browser: Firefox 100.0 / Windows 10
+
+   118 | * await ArticleHelper.validateDeletedArticleOnFeedTab(&#39;Global Feed&#39;);
+   119 | */
+   120 |  async validateDeletedArticleOnFeedTab(feedName, articleTitle = global.title) &#123
+   121 |    await t
+   122 |      .click(MainPage.feedTabSelector.withText(feedName))
+ &gt; 123 |      .expect(MainPage.articleTitleSelector).notContains(articleTitle);
+   124 |  &#125
+   125 |
+   126 |  /**
+   127 | * Validate updated article on feed tab and article details page
+   128 | * @param {String} feedName - feed tab name
+
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:123:46)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:264)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:602)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:767)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:508)
+   at ArticleHelper.validateDeletedArticleOnFeedTab (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:120:80)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:45:25)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1369)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1707) </pre><br> <h4 id="test-4" style="color: red;">4. CRUD operations for articles - Test case 4 | BWQA-9: Update article | data set: 1</h4>
+ <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">Cannot obtain information about the node because the specified selector does not match any node in the DOM tree.
+
+   | Selector(&#39;a&#39;)
+ &gt; |   .withAttribute(&#39;class&#39;, &#39;preview-link&#39;)
+   |   .child(&#39;h1&#39;)
+
+Browser: Firefox 100.0 / Windows 10
+
+   135 | */
+   136 |  async validateUpdatedArticle(feedName, articleTitle = global.title, articleDescription = global.description, articleBody = global.body) &#123
+   137 |    await t
+   138 |      .navigateTo((process.env.GLOBAL_URL))
+   139 |      .click(MainPage.feedTabSelector.withText(feedName))
+ &gt; 140 |      .expect(MainPage.articleTitleSelector).contains(articleTitle);
+   141 |    const descriptionSelectorContent = await MainPage.articleDescriptionSelector;
+   142 |    await t
+   143 |      .expect(descriptionSelectorContent)
+   144 |      .contains(articleDescription)
+   145 |      .click(MainPage.readMoreSelector);
+
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:140:46)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:264)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:602)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:767)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:508)
+   at ArticleHelper.validateUpdatedArticle (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:136:139)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:55:25)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1369)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1707) </pre><br> <h4 id="test-5" style="color: red;">5. CRUD operations for articles - Test case 5 | BWQA-12: Create empty article | data set: 1</h4>
+ <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">AssertionError: expected false to be truthy
+
+Browser: Firefox 100.0 / Windows 10
+
+   80 | */
+   81 |  async createAndValidateEmptyArticle() &#123
+   82 |    await t
+   83 |      .click(MainPage.newArticleLinkSelector)
+   84 |    // I assume here that publish article button will be disabled once required fields are not filled
+ &gt; 85 |      .expect(NewArticlePage.publishArticleButtonSelector.hasAttribute(&#39;disabled&#39;)).ok();
+   86 |  &#125
+   87 |
+   88 |  /**
+   89 | * Validate article on Your Feed tab
+   90 | * @param {String} feedTabName - feed tab name
+
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:85:85)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:264)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:602)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:767)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:10:508)
+   at ArticleHelper.createAndValidateEmptyArticle (C:\Users\wiole\Projects\BB-Web-QA-assignment\page-objects\helpers\article-helper.js:81:41)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:62:25)
+   at asyncGeneratorStep (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1369)
+   at _next (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1707)
+   at &lt;anonymous&gt; (C:\Users\wiole\Projects\BB-Web-QA-assignment\tests\crud-articles-operations.js:3:1872) </pre><br>
+    </div>
+    <script>
+      const modal = document.getElementById('myModal');
+      const modalImage = document.getElementById("modelImage");
+
+      Array.from(document.getElementsByClassName("thumbImg")).forEach(function(el) {
+        el.onclick = function() {
+          modal.style.display = "block";
+          modalImage.src = this.src;
+        }
+      });
+
+      document.getElementsByClassName("closeModal")[0].onclick = function() {
+        modal.style.display = "none";
+      }
+    </script>
+  </body>
+  <br>
+</html>
